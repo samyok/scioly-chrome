@@ -84,7 +84,10 @@ function parseNewPosts(data) {
         parseHideTags();
         setTimeout(() => {
             loader.isLoading = false;
-        }, 10000)
+            if ($(window).scrollTop() + $(window).height() >= $(document).height() - 100) {
+                startLoading();
+            }
+        }, 2500)
     } else {
         loader.isLoading = false;
     }
@@ -94,7 +97,7 @@ class Post {
     constructor(htmlPost) {
         this.elem = $(htmlPost);
         this.id = this.elem.attr("id");
-        this.author = this.elem.find(".username:first");
+        this.author = this.elem.find(".username:first, .username-coloured:first");
         this.content = this.elem.find(".content");
     }
 }
