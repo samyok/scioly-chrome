@@ -2,7 +2,8 @@
 
 
 Try dragging the below link to your bookmarks bar. If that worked, then you don't need to do anything else! Just click the bookmark every time you want to load the extension.
-#### [SciOly.org Extension]('javascript:!function(){function e(){!function(e){function t(){console.log("loaded")}let n=document.createElement("script");n.src="https://nepaltechguy2.github.io/scioly-chrome/bookmarklet.js?_="+Date.now(),n.addEventListener?n.addEventListener("load",t,!1):n.readyState&&(n.onreadystatechange=t),document.body.appendChild(n)}(jQuery.noConflict(!0))}let t=document.createElement("script");t.src="https://nepaltechguy2.github.io/scioly-chrome/vendor/jquery-3.4.1.min.js",t.addEventListener?t.addEventListener("load",e,!1):t.readyState&&(t.onreadystatechange=e),document.body.appendChild(t)}();')
+
+<a href="javascript:!function(){function e(){!function(e){function t(){console.log('loaded')}let n=document.createElement('script');n.src='https://nepaltechguy2.github.io/scioly-chrome/bookmarklet.js?_='+Date.now(),n.addEventListener?n.addEventListener('load',t,!1):n.readyState&&(n.onreadystatechange=t),document.body.appendChild(n)}(jQuery.noConflict(!0))}let t=document.createElement('script');t.src='https://nepaltechguy2.github.io/scioly-chrome/vendor/jquery-3.4.1.min.js',t.addEventListener?t.addEventListener('load',e,!1):t.readyState&&(t.onreadystatechange=e),document.body.appendChild(t)}();"> SciOly.org Extension </a>
 
 
 If that didn't work, then follow the instructions below: 
@@ -57,4 +58,3 @@ It should look like this:
 ![Image of bookmarks menu](img/screenshotOfBookmark.PNG)
 
 That's it! Now on every page you want to load the forums extension, just click on the bookmarklet. All the features will be pulled across and will automatically update. :)
-
