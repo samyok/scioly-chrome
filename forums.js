@@ -1,12 +1,31 @@
 let config = {
     infiniteScroll: true,
-    quoteNames: true
+    quoteNames: true,
+    // minimum to display
+    logLevel: 0
 };
 
 $(document).ready(() => {
     let params = (new URL(document.location)).searchParams;
     if (params.get("t") && config.infiniteScroll) infiniteScroll();
 });
+const logLevel = {
+    INFO: 0,
+    LOG: 1,
+    DEBUG: 2,
+    WARN: 3,
+    ERROR: 4
+};
+
+function log(message, level) {
+    const levels = [console.info, console.log, console.debug, console.warn, console.error];
+    level = level ? level : 0;
+    if (level >= levels.length) {
+        throw "Incorrect log level, must be less than 5. ";
+    } else if (level > config.logLevel) {
+        levels[level](message);
+    }
+}
 
 /**
  * This is the loader that is used to keep state as well as graphically display. CSS in css/loader.css
