@@ -55,6 +55,11 @@ $(document).ready(() => {
             href: 'https://nepaltechguy2.github.io/scioly-chrome/css/loader.css'
         });
     if (params.get("t") && config.infiniteScroll) infiniteScroll();
+    if (location.href === "https://nepaltechguy2.github.io/scioly-chrome/bookmarklet"){
+        $("p, h2, ol").hide();
+        $("#scioly-extension-as-a-bookmark").text("It works!");
+        $("p:first").show().html("Go <a href=\"https://scioly.org/forums/viewtopic.php?f=321&t=15366&start=90#p398315\">here</a> and click on the bookmark again to test it!")
+    }
 });
 const logLevel = {
     INFO: 0,
