@@ -5,38 +5,6 @@ let config = {
     logLevel: 0
 };
 
-$(document).ready(() => {
-    let params = (new URL(document.location)).searchParams;
-    $('<link>')
-        .appendTo('head')
-        .attr({
-            type: 'text/css',
-            rel: 'stylesheet',
-            href: 'https://nepaltechguy2.github.io/scioly-chrome/css/loader.css'
-        });
-    if (params.get("t") && config.infiniteScroll) infiniteScroll();
-});
-const logLevel = {
-    INFO: 0,
-    LOG: 1,
-    DEBUG: 2,
-    WARN: 3,
-    ERROR: 4
-};
-
-function log(message, level) {
-    const levels = [console.info, console.log, console.debug, console.warn, console.error];
-    level = level ? level : 0;
-    if (level >= levels.length) {
-        throw "Incorrect log level, must be less than 5. ";
-    } else if (level > config.logLevel) {
-        levels[level](message);
-    }
-}
-
-/**
- * This is the loader that is used to keep state as well as graphically display. CSS in css/loader.css
- */
 class Loader {
     constructor(id) {
         this._id = id ? id : 'ext-loader';
@@ -66,6 +34,47 @@ class Loader {
     }
 }
 
+class Post {
+    constructor(htmlPost) {
+        this.elem = $(htmlPost);
+        this.id = this.elem.attr("id");
+        this.author = this.elem.find(".username:first, .username-coloured:first");
+        this.content = this.elem.find(".content");
+    }
+}
+
+let loader = new Loader(), posts = [];
+
+$(document).ready(() => {
+    let params = (new URL(document.location)).searchParams;
+    $('<link>')
+        .appendTo('head')
+        .attr({
+            type: 'text/css',
+            rel: 'stylesheet',
+            href: 'https://nepaltechguy2.github.io/scioly-chrome/css/loader.css'
+        });
+    if (params.get("t") && config.infiniteScroll) infiniteScroll();
+});
+const logLevel = {
+    INFO: 0,
+    LOG: 1,
+    DEBUG: 2,
+    WARN: 3,
+    ERROR: 4
+};
+
+function log(message, level) {
+    const levels = [console.info, console.log, console.debug, console.warn, console.error];
+    level = level ? level : 0;
+    if (level >= levels.length) {
+        throw "Incorrect log level, must be less than 5. ";
+    } else if (level > config.logLevel) {
+        levels[level](message);
+    }
+}
+
+
 function infiniteScroll() {
     $(window).scroll(function () {
         if ($(window).scrollTop() + $(window).height() >= $(document).height() - 100) {
@@ -82,7 +91,6 @@ function infiniteScroll() {
     parseHideTags();
 }
 
-let loader = new Loader();
 
 function startLoading() {
     if (loader.isLoading || loader.finishedLoading) return;
@@ -118,17 +126,6 @@ function parseNewPosts(data) {
         loader.isLoading = false;
     }
 }
-
-class Post {
-    constructor(htmlPost) {
-        this.elem = $(htmlPost);
-        this.id = this.elem.attr("id");
-        this.author = this.elem.find(".username:first, .username-coloured:first");
-        this.content = this.elem.find(".content");
-    }
-}
-
-let posts = [];
 
 function parseQuotes(newPosts) {
     // start from top
