@@ -15,7 +15,7 @@ class Loader {
     constructor(id) {
         this._id = id ? id : 'ext-loader';
         this.selector = `#${this._id}`;
-        this.elem = $(`<div id='${this._id}' class="loader"/>`);
+        this.elem = $(`<div id='${this._id}' class="loader" style="display: none"/>`);
         $(".post:last").after(this.elem);
         this._isLoading = false;
         this.finishedLoading = false;
