@@ -1,8 +1,6 @@
-if (location.href === "https://nepaltechguy2.github.io/scioly-chrome/bookmarklet"){
-    $("p, h2, ol").hide();
-    $("#scioly-extension-as-a-bookmark").text("It works!");
-    $("p:first").show().html("Go <a href=\"https://scioly.org/forums/viewtopic.php?f=321&t=15366&start=90#p398315\">here</a> and click on the bookmark again to test it!")
-}
+if (location.href === "https://nepaltechguy2.github.io/scioly-chrome/bookmarklet")
+    document.body.children[0].innerHTML = "<h1>It works!</h1>" +
+        "<p>Go <a href=\"https://scioly.org/forums/viewtopic.php?f=321&t=15366&start=90#p398315\">here</a> to test it.</p>"
 
 let config = {
     infiniteScroll: true,
@@ -159,9 +157,9 @@ function parseQuotes(newPosts) {
 
 function parseUniversalTags() {
     // image proxy
-    $("img").each((key, img)=>{
+    $("img").each((key, img) => {
         img = $(img);
-        if(img.attr("src").includes("http")&& !img.attr("src").includes("sci-oly.eggs.workers.dev")){
+        if (img.attr("src").includes("http") && !img.attr("src").includes("sci-oly.eggs.workers.dev")) {
             let imgSrc = img.attr("src");
             img.attr("src", `https://sci-oly.eggs.workers.dev/?u=${imgSrc}`);
         }
