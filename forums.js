@@ -129,7 +129,7 @@ function parseQuotes(newPosts) {
         let post = new Post(jpost);
         // check each new quote among all last messages, going backward in time
         post.elem.find("blockquote").each((_key, blockQuote) => {
-            for (let i = posts.length - 1; i > 0; i--) {
+            for (let i = posts.length - 1; i >= 0; i--) {
                 if (posts[i].content.text().replace(/\n/g, "").toLowerCase()
                     .includes($(blockQuote).text().replace(/\n/g, "").toLowerCase())) {
                     $(blockQuote)
