@@ -155,9 +155,9 @@ function parseUniversalTags() {
     // image proxy
     $("img").each((key, img)=>{
         img = $(img);
-        if(img.attr("src").includes("http")&& !img.attr("src").includes("proxy.duckduckgo.com")){
+        if(img.attr("src").includes("http")&& !img.attr("src").includes("sci-oly.eggs.workers.dev")){
             let imgSrc = img.attr("src");
-            img.attr("src", `https://proxy.duckduckgo.com/iu/?u=${imgSrc}`);
+            img.attr("src", `https://sci-oly.eggs.workers.dev/?u=${imgSrc}`);
         }
     });
 
