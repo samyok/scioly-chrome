@@ -58,3 +58,8 @@
 .clickable{
     cursor: pointer;
 }
+
+img[src='https://scioly.org/src/img/logo/logo.png'] {
+    outline: 1px solid white;
+    padding: 10px;
+}
