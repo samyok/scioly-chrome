@@ -88,7 +88,7 @@ function infiniteScroll() {
         "padding-bottom: 5px;}";
     addStyleString(blockQuoteCSS);
     parseQuotes($(".post"));
-    parseHideTags();
+    parseUniversalTags();
 }
 
 
@@ -115,7 +115,7 @@ function parseNewPosts(data) {
         let newPosts = $(data).find(".post");
         parseQuotes(newPosts);
         lastCurrentPost.after(newPosts);
-        parseHideTags();
+        parseUniversalTags();
         setTimeout(() => {
             loader.isLoading = false;
             if ($(window).scrollTop() + $(window).height() >= $(document).height() - 100) {
@@ -151,7 +151,17 @@ function parseQuotes(newPosts) {
     });
 }
 
-function parseHideTags() {
+function parseUniversalTags() {
+    // image proxy
+    $("img").each((key, img)=>{
+        img = $(img);
+        if(img.attr("src").includes("http")&& !img.attr("src").includes("proxy.duckduckgo.com")){
+            let imgSrc = img.attr("src");
+            img.attr("src", `https://proxy.duckduckgo.com/iu/?u=${imgSrc}`);
+        }
+    });
+
+    // hide tags
     let tags = $("dl.codebox");
     tags.each((key, rawTag) => {
         let tag = $(rawTag);
