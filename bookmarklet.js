@@ -1,6 +1,6 @@
 if (location.href === "https://nepaltechguy2.github.io/scioly-chrome/bookmarklet")
     document.body.children[0].innerHTML = "<h1>It works!</h1>" +
-        "<p>Go <a href=\"https://scioly.org/forums/viewtopic.php?f=321&t=15366&start=90#p398315\">here</a> to test it.</p>"
+        "<p>Go <a href=\"https://scioly.org/forums/viewtopic.php?f=321&t=15366&start=90\">here</a> and click on it again to test it.</p>";
 
 let config = {
     infiniteScroll: true,
