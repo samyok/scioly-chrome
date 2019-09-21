@@ -1,0 +1,13 @@
+{
+  "name": "Better SciOly Forums",
+  "version": "1.0",
+  "description": "A community driven, open source scioly.org/forums extension.",
+  "content_scripts": [
+    {
+      "matches": ["https://scioly.org/forums/*"],
+      "js": ["vendor/jquery-3.4.1.min.js","forums.js"],
+      "css": ["css/loader.css"]
+    }
+  ],
+  "manifest_version": 2
+}
