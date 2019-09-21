@@ -1,6 +1,6 @@
 {
   "name": "Better SciOly Forums",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A community driven, open source scioly.org/forums extension.",
   "content_scripts": [
     {
