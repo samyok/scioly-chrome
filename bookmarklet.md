@@ -11,7 +11,7 @@ javascript:(function () {
             }
 
             let s = document.createElement("script");
-            s.src = "https://nepaltechguy2.github.io/scioly-chrome/bookmarklet.js";
+            s.src = "https://nepaltechguy2.github.io/scioly-chrome/bookmarklet.js?_="+Date.now();
             if (s.addEventListener) {
                 s.addEventListener("load", callback, false)
             } else if (s.readyState) {
