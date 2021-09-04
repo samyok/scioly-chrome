@@ -1,6 +1,7 @@
 let config = {
     infiniteScroll: true,
     quoteNames: true,
+    pageJumping: true,
     // minimum to display
     logLevel: 0
 };
@@ -55,7 +56,25 @@ $(document).ready(() => {
             href: 'https://nepaltechguy2.github.io/scioly-chrome/css/loader.css'
         });
     if (params.get("t") && config.infiniteScroll) infiniteScroll();
+    if (params.get("t") && config.pageJumping) pageJumping()
 });
+
+function pageJumping() {
+    document.querySelectorAll(".ellipsis").forEach(e => e.addEventListener('dblclick', event => {
+        e.innerHTML = "<input class='pageselector' style='50px'></input>";
+        const listener = ev => {
+            let currentParams = new URLSearchParams(location.search);        
+            currentParams.set("start", (+ev.target.value - 1) * 10)
+            location.search = currentParams;
+        }
+        e.querySelector("input").addEventListener("blur", listener)
+        e.querySelector("input").addEventListener("keypress", ev => {
+            if(ev.keyCode === 13) listener(ev);
+        })
+    }))
+}
+
+
 const logLevel = {
     INFO: 0,
     LOG: 1,
