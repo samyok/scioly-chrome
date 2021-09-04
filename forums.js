@@ -71,6 +71,7 @@ function pageJumping() {
         e.querySelector("input").addEventListener("keypress", ev => {
             if(ev.keyCode === 13) listener(ev);
         })
+	e.querySelector("input").focus();
     }))
 }
 
