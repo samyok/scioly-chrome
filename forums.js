@@ -53,7 +53,7 @@ $(document).ready(() => {
         .attr({
             type: 'text/css',
             rel: 'stylesheet',
-            href: 'https://nepaltechguy2.github.io/scioly-chrome/css/loader.css'
+            href: 'https://samyok.github.io/scioly-chrome/css/loader.css'
         });
     if (params.get("t") && config.infiniteScroll) infiniteScroll();
     if (params.get("t") && config.pageJumping) pageJumping()

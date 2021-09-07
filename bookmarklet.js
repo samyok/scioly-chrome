@@ -1,4 +1,4 @@
-if (location.href === "https://nepaltechguy2.github.io/scioly-chrome/bookmarklet")
+if (location.href === "https://samyok.github.io/scioly-chrome/bookmarklet")
     document.body.children[0].innerHTML = "<h1>It works!</h1>" +
         "<p>Go <a href=\"https://scioly.org/forums/viewtopic.php?f=321&t=15366&start=90\">here</a> and click on it again to test it.</p>";
 
@@ -56,7 +56,7 @@ $(document).ready(() => {
         .attr({
             type: 'text/css',
             rel: 'stylesheet',
-            href: 'https://nepaltechguy2.github.io/scioly-chrome/css/loader.css'
+            href: 'https://samyok.github.io/scioly-chrome/css/loader.css'
         });
     if (params.get("t") && config.infiniteScroll) infiniteScroll();
 });
